@@ -15,6 +15,10 @@ jobs:
         with:
           node-version: "18.12.1"
 
+      - name: Setup ssh url
+        run: |
+          git config --global url."https://github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
+
       - name: Install
         run: yarn install
 
