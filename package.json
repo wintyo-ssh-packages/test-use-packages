@@ -9,7 +9,7 @@
   "author": "wintyo <wintyo1024@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@wintyo-ssh-packages/utils": "git+ssh://git@github.com:wintyo-ssh-packages/utils.git#dist"
+    "@wintyo-ssh-packages/utils": "git+ssh://git@github.com:wintyo-ssh-packages/utils.git#dist-v0.0.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
