@@ -15,6 +15,11 @@ jobs:
         with:
           node-version: "18.12.1"
 
+      - name: Check WINTYO_PAT
+        run: |
+          echo ${{ secrets.WINTYO_PAT }}
+          echo ${{ secrets.HOGE }}
+
       - name: Setup ssh url
         run: |
           git config --global url."https://${{ secrets.WINTYO_PAT }}:x-oauth-basic@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
