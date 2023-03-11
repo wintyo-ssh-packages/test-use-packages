@@ -1,0 +1,22 @@
+name: trial
+on: push
+
+jobs:
+  trial:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.12.1"
+
+      - name: Install
+        run: yarn install
+
+      - name: Run
+        run: yarn start
