@@ -9,6 +9,7 @@
   "author": "wintyo <wintyo1024@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@wintyo-ssh-packages/private-utils": "git+ssh://git@github.com:wintyo-ssh-packages/private-utils.git#dist-v0.0.0",
     "@wintyo-ssh-packages/utils": "git+ssh://git@github.com:wintyo-ssh-packages/utils.git#dist-v0.0.0"
   },
   "devDependencies": {

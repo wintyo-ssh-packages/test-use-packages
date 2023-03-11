@@ -47,6 +47,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.3.tgz#472eaab5f15c1ffdd7f8628bd4c4f753995ec79e"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
+"@wintyo-ssh-packages/private-utils@git+ssh://git@github.com:wintyo-ssh-packages/private-utils.git#dist-v0.0.0":
+  version "0.0.0"
+  resolved "git+ssh://git@github.com:wintyo-ssh-packages/private-utils.git#d69757b286c4f571a083c9bef641cd88e70b7407"
+
 "@wintyo-ssh-packages/utils@git+ssh://git@github.com:wintyo-ssh-packages/utils.git#dist-v0.0.0":
   version "0.0.0"
   resolved "git+ssh://git@github.com:wintyo-ssh-packages/utils.git#aef3d2af693c69cfeac2c522335b4b3b4f2f417c"
