@@ -21,7 +21,7 @@ jobs:
           SSH_KEY: ${{ secrets.WINTYO_SSH_KEY }}
         run: |
           mkdir -p /home/runner/.ssh/
-          echo -e "$SSH_KEY" > /home/.ssh/id_rsa
+          echo -e "$SSH_KEY" > /home/runner/.ssh/id_rsa
           chmod 600 /home/runner/.ssh/id_rsa
 
       # なぜかPATの設定を見てくれない（間違ったPATでも認証エラーが起きずただリポジトリがNot Foundになる）
