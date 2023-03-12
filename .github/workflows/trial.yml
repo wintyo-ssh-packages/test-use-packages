@@ -15,19 +15,20 @@ jobs:
         with:
           node-version: "18.12.1"
 
-      # sshで見るパターン
-      - name: SSH Setting
-        env:
-          SSH_KEY: ${{ secrets.WINTYO_SSH_KEY }}
-        run: |
-          mkdir -p /home/runner/.ssh/
-          echo -e "$SSH_KEY" > /home/runner/.ssh/id_rsa
-          chmod 600 /home/runner/.ssh/id_rsa
-
-      # なぜかPATの設定を見てくれない（間違ったPATでも認証エラーが起きずただリポジトリがNot Foundになる）
-      # - name: Setup ssh url
+      # sshキーを登録してインストールするパターン
+      # - name: SSH Setting
+      #   env:
+      #     SSH_KEY: ${{ secrets.WINTYO_SSH_KEY }}
       #   run: |
-      #     git config --global url."https://${{ secrets.WINTYO_PAT }}:x-oauth-basic@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
+      #     mkdir -p /home/runner/.ssh/
+      #     echo -e "$SSH_KEY" > /home/runner/.ssh/id_rsa
+      #     chmod 600 /home/runner/.ssh/id_rsa
+
+      # PATでインストールするパターン
+      - name: Setup ssh url
+        # なぜかPATの設定を見てくれない（間違ったPATでも認証エラーが起きずただリポジトリがNot Foundになる）
+        run: |
+          git config --global url."https://${{ secrets.WINTYO_PAT }}:x-oauth-basic@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
 
       - name: Install
         run: yarn install
