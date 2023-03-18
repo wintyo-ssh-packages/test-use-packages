@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        # with:
-        #   token: ${{ secrets.WINTYO_PAT }}
+        with:
+          token: ${{ secrets.WINTYO_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -19,7 +19,7 @@ jobs:
 
       - name: Setup ssh url
         run: |
-          git config --global url."https://x-access-token:${{ secrets.WINTYO_PAT }}@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
+          git config --global url."https://github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
 
       - name: Install
         run: yarn install
