@@ -29,8 +29,10 @@ jobs:
       # PATでインストールするパターン
       - name: Setup ssh url
         # なぜかPATの設定を見てくれない（間違ったPATでも認証エラーが起きずただリポジトリがNot Foundになる）
+        # run: |
+        #   git config --global url."https://${{ secrets.WINTYO_PAT }}:x-oauth-basic@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
         run: |
-          git config --global url."https://${{ secrets.WINTYO_PAT }}:x-oauth-basic@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
+          git config --global url."https://x-access-token:${{ secrets.WINTYO_PAT }}@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
 
       - name: Install
         run: yarn install
