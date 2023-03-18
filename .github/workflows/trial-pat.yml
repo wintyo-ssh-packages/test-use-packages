@@ -1,27 +1,25 @@
-name: Install by ssh
+name: Install by PAT
 on: push
 
 jobs:
-  install-by-ssh:
+  install-by-pat:
     runs-on: ubuntu-22.04
     timeout-minutes: 10
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.WINTYO_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18.12.1"
 
-      - name: SSH Setting
+      - name: Setup ssh url
         run: |
-          mkdir -p /home/runner/.ssh/
-          echo -e "$SSH_KEY" > /home/runner/.ssh/id_rsa
-          chmod 600 /home/runner/.ssh/id_rsa
-        env:
-          SSH_KEY: ${{ secrets.WINTYO_SSH_KEY }}
+          git config --global url."https://x-access-token:${{ secrets.WINTYO_PAT }}@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
 
       - name: Install
         run: yarn install
