@@ -15,14 +15,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18.12.1"
+          node-version-file: ".node-version"
+          cache: "yarn"
 
       - name: Setup ssh url
         run: |
           git config --global url."https://x-access-token:${{ secrets.WINTYO_PAT }}@github.com/wintyo-ssh-packages".insteadOf "git@github.com:wintyo-ssh-packages"
 
       - name: Install
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Run
         run: yarn start
